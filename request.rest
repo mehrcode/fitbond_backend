@@ -1,0 +1,29 @@
+### register
+POST http://127.0.0.1:8000/account/register/
+Content-Type: application/json
+
+{
+    "email": "negar@example.com",
+    "password1": "negar1234",
+    "password2": "negar1234"
+}
+
+### login
+POST http://localhost:8000/api/account/
+Content-Type: application/json
+
+{
+    "email": "negar@example.com",
+    "password": "negar1234"
+}
+
+### logs_create
+POST http://localhost:8000/habit/logs/create/
+Content-Type: application/json
+
+{
+    "user_id": "6d09a82eee7c423db3f1c8720b3d9d1b",
+    "walking_steps": 6000,
+    "exercise_minutes": 20,
+    "exercise_description": "Yoga"
+}

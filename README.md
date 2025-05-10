@@ -41,9 +41,14 @@ FitBond is built around the idea of **gentle progress**, especially for people w
 
 ---
 
-## 🚀 Running the Project Locally
 
-1. Clone the frontend repo:
-   ```bash
-   git clone https://github.com/yourusername/fitbond_frontend.git
-   cd fitbond_frontend
+
+✍️ Creator
+Developed by Mehrnoosh Shoolestani – a creative developer passionate about health, design, and digital well-being.
+
+Have feedback or want to collaborate? 
+Reach out via Instagram @mehrnoosh.shoolestani
+or 
+mehrnoosh.shoolestani@gmail.com.
+
+
