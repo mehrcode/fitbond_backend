@@ -3,9 +3,9 @@ POST http://127.0.0.1:8000/account/register/
 Content-Type: application/json
 
 {
-    "email": "negar@example.com",
-    "password1": "negar1234",
-    "password2": "negar1234"
+    "email": "mozhgan@example.com",
+    "password1": "mozhgan1234",
+    "password2": "mozhgan1234"
 }
 
 ### login
@@ -13,8 +13,8 @@ POST http://localhost:8000/api/account/
 Content-Type: application/json
 
 {
-    "email": "negar@example.com",
-    "password": "negar1234"
+    "email": "mehrnoosh@example.com",
+    "password": "mehrnoosh1234"
 }
 
 ### logs_create
@@ -26,4 +26,23 @@ Content-Type: application/json
     "walking_steps": 6000,
     "exercise_minutes": 20,
     "exercise_description": "Yoga"
+}
+
+### get_token
+POST http://localhost:8000/account/token/
+Content-Type: application/json
+
+{
+  "email": "mehrnoosh@example.com",
+  "password": "mehrnoosh1234"
+}
+
+### create_group
+POST http://localhost:8000/habit/groups/create/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3MTMwODY0LCJpYXQiOjE3NDcxMjcyNjQsImp0aSI6IjdmOWU3YWM3NTI1MjRiODFhMmZjOTFmZTViYmE0MDlhIiwidXNlcl9pZCI6IjFjNmViNjE5LTI0MzctNDMyMS1iN2ZmLWZhM2U3ZDEyODgzNiJ9.Ml9B1cgua5zpgrNovyZ7farFkw9554vwaOWIjsRqKcY
+
+{
+    "name": "Decipline",
+    "member_ids": [3, 4, 5]
 }

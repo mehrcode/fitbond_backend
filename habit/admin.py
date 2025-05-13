@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Habit
+from .models import Habit, Group
 
 
 class HabitAdmin(admin.ModelAdmin):
@@ -13,3 +13,4 @@ class HabitAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Habit, HabitAdmin)
+admin.site.register(Group)
