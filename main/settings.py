@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     "corsheaders",
     "account",
     "habit",
+    "main",
 ]
 
 MIDDLEWARE = [
