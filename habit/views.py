@@ -27,6 +27,7 @@ class HabitCreateView(APIView):
 
 
 class GroupView(APIView):
+    permission_classes = [IsAuthenticated]
     def post(self, request):
         name = request.data.get("name")
         member_ids = request.data.get("member_ids", [])

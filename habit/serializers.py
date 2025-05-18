@@ -16,8 +16,12 @@ class HabitSerializer(serializers.ModelSerializer):
 
 
 class GroupSerializer(serializers.ModelSerializer):
+    admin = (
+        serializers.StringRelatedField()
+    )  
+    members = serializers.StringRelatedField(many=True)
+
     class Meta:
-        admin = serializers
         model = Group
         fields = ["id", "name", "admin", "members", "created_at"]
         read_only_fields = ["admin", "created_at"]

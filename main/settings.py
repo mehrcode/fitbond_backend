@@ -13,9 +13,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-&43f_#8@!+_ir__8k(w&k_qas6pme9^7v#xx-!=kcf(ecl4_^k"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
+ALLOWED_HOSTS = ['*']
 
 AUTH_USER_MODEL = 'account.User'   # the most important logic to make your custom user the current user
 
