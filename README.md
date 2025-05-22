@@ -53,4 +53,3 @@ mehrnoosh.shoolestani@gmail.com.
 
 
 # 
-this app is made with love by mehrnoosh shoolestani specialy for people who suffers from perfectionism.
