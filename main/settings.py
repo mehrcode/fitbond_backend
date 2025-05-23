@@ -15,7 +15,7 @@ SECRET_KEY = "django-insecure-&43f_#8@!+_ir__8k(w&k_qas6pme9^7v#xx-!=kcf(ecl4_^k
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['fitbond-backend.onrender.com', 'localhost', '127.0.0.1']
 
 AUTH_USER_MODEL = 'account.User'   # the most important logic to make your custom user the current user
 
