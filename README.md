@@ -53,5 +53,3 @@ mehrnoosh.shoolestani@gmail.com.
 
 
 # 
-commit a git on friday afternoon
-fix bugs from register account app

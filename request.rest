@@ -3,7 +3,7 @@ POST http://127.0.0.1:8000/account/register/
 Content-Type: application/json
 
 {
-    "email": "farhang@example.com",
+    "email": "farhang1@example.com",
     "password1": "farhang1234",
     "password2": "farhang1234"
 }
@@ -20,9 +20,9 @@ Content-Type: application/json
 ### logs_create
 POST http://localhost:8000/habit/logs/create/
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4MDEyODcxLCJpYXQiOjE3NDgwMDkyNzEsImp0aSI6IjNhNGZiMTI3MDYwZDQ4ZTlhNjFiOGY3OTQ3NTU1ODJkIiwidXNlcl9pZCI6ImU1NzhkZGUzLTE4OGQtNDVhMC1hMGQ5LWUxZDM3ODE3NDYyYiJ9.IKXH6qJ5Vy9Q7i1uIPsxFSem8icoUS0q_WnFoDRGN-s
 
 {
-    "user_id": "6d09a82eee7c423db3f1c8720b3d9d1b",
     "walking_steps": 6000,
     "exercise_minutes": 20,
     "exercise_description": "Yoga"
