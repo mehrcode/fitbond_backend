@@ -3,9 +3,9 @@ POST http://127.0.0.1:8000/account/register/
 Content-Type: application/json
 
 {
-    "email": "mozhgan@example.com",
-    "password1": "mozhgan1234",
-    "password2": "mozhgan1234"
+    "email": "farhang@example.com",
+    "password1": "farhang1234",
+    "password2": "farhang1234"
 }
 
 ### login
