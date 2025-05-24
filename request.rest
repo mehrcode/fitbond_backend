@@ -9,12 +9,12 @@ Content-Type: application/json
 }
 
 ### login
-POST http://localhost:8000/api/account/
+POST http://localhost:8000/api/account/token/
 Content-Type: application/json
 
 {
-    "email": "mehrnoosh@example.com",
-    "password": "mehrnoosh1234"
+    "email": "farhang1@example.com",
+    "password": "farhang1234"
 }
 
 ### logs_create

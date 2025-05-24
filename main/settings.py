@@ -15,9 +15,11 @@ SECRET_KEY = "django-insecure-&43f_#8@!+_ir__8k(w&k_qas6pme9^7v#xx-!=kcf(ecl4_^k
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['fitbond-backend.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ["fitbond-backend.onrender.com", "localhost", "127.0.0.1"]
 
-AUTH_USER_MODEL = 'account.User'   # the most important logic to make your custom user the current user
+AUTH_USER_MODEL = (
+    "account.User"  # the most important logic to make your custom user the current user
+)
 
 
 # Application definition
@@ -30,7 +32,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
-    'rest_framework_simplejwt',
+    "rest_framework_simplejwt",
     "corsheaders",
     "account",
     "habit",
@@ -132,13 +134,13 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 
-
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
     ),
-    'DEFAULT_PERMISSION_CLASSES': (
+    "DEFAULT_PERMISSION_CLASSES": (
         'rest_framework.permissions.IsAuthenticated',
+        "rest_framework.permissions.AllowAny"
     ),
 }
 
