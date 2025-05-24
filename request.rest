@@ -9,7 +9,7 @@ Content-Type: application/json
 }
 
 ### login
-POST http://localhost:8000/api/account/token/
+POST http://localhost:8000/api/account/
 Content-Type: application/json
 
 {
@@ -29,7 +29,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiY
 }
 
 ### get_token
-POST http://localhost:8000/account/token/
+POST http://localhost:8000/api/account/
 Content-Type: application/json
 
 {
