@@ -46,3 +46,21 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiY
     "name": "Decipline",
     "member_ids": [3, 4, 5]
 }
+
+### display_user-information
+GET http://localhost:8000/account/profile/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4MzY1NDM4LCJpYXQiOjE3NDgzNjE4MzgsImp0aSI6ImRkMjU4ZTQzYWNlZjQzM2Y5YzJlNmUxMTk1ZGQwM2ZkIiwidXNlcl9pZCI6IjIwY2RkNzVjLWVkNGQtNGI3MS1iYzUyLTQ4NmEyMjg3NjM2NiJ9.8uyPynp_KeCTdFj0bwetXiUO6VqtmR7moolDHLX926c
+
+
+### edit_profile 
+PUT http://localhost:8000/account/edit-profile/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU3MTUwNDE2LCJpYXQiOjE3NDg1MTA0MTYsImp0aSI6IjU1ZTRkY2ExYTI1ZjRmNzFhMzdhODhkNmEwNjI4OTkwIiwidXNlcl9pZCI6IjIwY2RkNzVjLWVkNGQtNGI3MS1iYzUyLTQ4NmEyMjg3NjM2NiJ9.B6kWIsEzy6kw4wQB68DGddyYrcf5dB_vwPGh_AGZqcs
+
+{
+    "email": "",
+    "phone": "09121112223",
+    "first_name": "",
+    "last_name": "shoolestani"
+}
