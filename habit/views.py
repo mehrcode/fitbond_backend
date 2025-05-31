@@ -13,15 +13,16 @@ from rest_framework.permissions import IsAuthenticated
 
 
 class HabitCreateView(APIView):
-    permission_classes = [IsAuthenticated]  # Require authentication
+    permission_classes = [IsAuthenticated] 
 
     def post(self, request):
-        user = request.user  # Use authenticated user instead of requesting `user_id`
+        user = request.user
+        data = request.data
         habit = Habit.objects.create(
             user=user,
-            walking_steps=request.data.get("walking_steps"),
-            exercise_minutes=request.data.get("exercise_minutes"),
-            exercise_description=request.data.get("exercise_description"),
+            walking_steps=data.get("walking_steps", 0),
+            exercise_minutes=data.get("exercise_minutes", 0),
+            exercise_description=data.get("exercise_description", ""),
         )
         return Response({"message": "Habit log created"}, status=201)
 
@@ -54,11 +55,13 @@ class GroupView(APIView):
 
 
 class SubmitCountView(APIView):
+    permission_classes = [IsAuthenticated]
+
     def post(self, request):
         user = request.user
-        logs = Log.objects.filter(user=user)
+        habits = Habit.objects.filter(user=user)
 
-        submit_times = logs.count()
-        active_days = logs.value_list("created_at_date", flat=True).distinct().count()
+        submit_times = habits.count()
+        active_days = habits.values_list("created_at", flat=True).distinct().count()
 
         return Response({"submit_count": submit_times, "active_days": active_days})
