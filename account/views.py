@@ -4,7 +4,11 @@ from rest_framework import status
 
 from .models import User
 from .serializers import UserSerializer, UserModelSerializer
-from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated , AllowAny
+from rest_framework.permissions import (
+    IsAuthenticatedOrReadOnly,
+    IsAuthenticated,
+    AllowAny,
+)
 
 
 class RegisterView(APIView):
@@ -47,7 +51,8 @@ class ProfileView(APIView):
         }
         serializer = UserModelSerializer(data=data)
         return Response(data)
-    
+
+
 class EditProfileView(APIView):
     permission_classes = [IsAuthenticated]
 
@@ -56,13 +61,19 @@ class EditProfileView(APIView):
         data = {
             "phone": request.data.get("phone"),
             "first_name": request.data.get("first_name"),
-            "last_name": request.data.get("last_name")
+            "last_name": request.data.get("last_name"),
         }
 
         cleaned_data = {k: v for k, v in data.items() if v != ""}
-        serializer = UserModelSerializer(user ,data=cleaned_data)
+        serializer = UserModelSerializer(user, data=cleaned_data)
 
         if serializer.is_valid():
             serializer.save()
-            return Response({"message": "Profile is updated."}, status=status.HTTP_200_OK)
-        return Response({"error": serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
+            return Response(
+                {"message": "profile is updated"}, status=status.HTTP_200_OK
+            )
+        return Response(
+            {"error": serializer.errors}, status=status.HTTP_400_BAD_REQUEST
+        )
+
+

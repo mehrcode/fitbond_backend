@@ -22,3 +22,9 @@ class Group(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Log(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    steps = models.IntegerField()
+    created_at = models.DateField(auto_now_add=True)
