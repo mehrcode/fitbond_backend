@@ -14,13 +14,14 @@ from rest_framework.permissions import IsAuthenticated
 
 
 class LogCreateView(APIView):
-    permission_classes = [IsAuthenticated] 
+    permission_classes = [IsAuthenticated]
 
     def post(self, request):
         user = request.user
         data = request.data
-        log = Habit.objects.create(
+        log = Log.objects.create(
             user=user,
+            steps=data.get("steps", 0),
             walking_steps=data.get("walking_steps", 0),
             exercise_minutes=data.get("exercise_minutes", 0),
             exercise_description=data.get("exercise_description", ""),
@@ -73,7 +74,7 @@ class StreakView(APIView):
 
     def post(self, request):
         user = request.user
-        habits = Habit.objects.filter(user=user).values_list('created_at', flat=True)
+        habits = Habit.objects.filter(user=user).values_list("created_at", flat=True)
         habit_dates = set(habits)
 
         today = date.today()
@@ -81,7 +82,7 @@ class StreakView(APIView):
         current_day = today
 
         while current_day in habit_dates:
-            streak +=1 
+            streak += 1
             current_day -= timedelta(days=1)
-        
+
         return Response({"streak": streak})

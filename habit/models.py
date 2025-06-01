@@ -19,6 +19,9 @@ class Habit(models.Model):
 class Log(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     steps = models.IntegerField()
+    walking_steps = models.IntegerField(default=0)
+    exercise_minutes = models.IntegerField(default=0)
+    exercise_description = models.TextField(blank=True, null=True)
     created_at = models.DateField(auto_now_add=True)
 
 
