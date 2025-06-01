@@ -1,32 +1,27 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from account.models import User, Group
-from .models import Habit, Log
+from account.models import User
+from .models import Habit, Group
 from .serializers import HabitSerializer, GroupSerializer
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
-from django.shortcuts import get_object_or_404
 from rest_framework.permissions import IsAuthenticated
 from datetime import date, timedelta
 
 
-from rest_framework.permissions import IsAuthenticated
-
-
-class LogCreateView(APIView):
+class HabitCreateView(APIView):
     permission_classes = [IsAuthenticated]
 
     def post(self, request):
         user = request.user
         data = request.data
-        log = Log.objects.create(
+        habit = Habit.objects.create(
             user=user,
             steps=data.get("steps", 0),
             walking_steps=data.get("walking_steps", 0),
             exercise_minutes=data.get("exercise_minutes", 0),
             exercise_description=data.get("exercise_description", ""),
         )
-        return Response({"message": "Log created"}, status=201)
+        return Response({"message": "Habit created"}, status=201)
 
 
 class GroupView(APIView):
@@ -39,10 +34,8 @@ class GroupView(APIView):
         if not name:
             return Response({"error": "Group name is required."}, status=400)
 
-        admin = request.user  # Ensure request.user is authenticated
-        group = Group.objects.create(
-            name=name, admin=admin
-        )  # ✅ Matches the model definition
+        admin = request.user
+        group = Group.objects.create(name=name, admin=admin)
         group.members.add(admin)
 
         for member_id in member_ids:

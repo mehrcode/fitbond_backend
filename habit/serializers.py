@@ -9,6 +9,7 @@ class HabitSerializer(serializers.ModelSerializer):
         model = Habit
         fields = [
             "user",
+            "steps",
             "walking_steps",
             "exercise_minutes",
             "exercise_description",
@@ -16,9 +17,7 @@ class HabitSerializer(serializers.ModelSerializer):
 
 
 class GroupSerializer(serializers.ModelSerializer):
-    admin = (
-        serializers.StringRelatedField()
-    )  
+    admin = serializers.StringRelatedField()
     members = serializers.StringRelatedField(many=True)
 
     class Meta:

@@ -1,11 +1,10 @@
 from django.db import models
 from account.models import User
 
-
 class Habit(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    walking_steps = models.IntegerField()
-    exercise_minutes = models.IntegerField()
+    walking_steps = models.IntegerField(default=0)
+    exercise_minutes = models.IntegerField(default=0)
     exercise_description = models.TextField(blank=True, null=True)
     created_at = models.DateField(auto_now_add=True)
 
@@ -13,16 +12,7 @@ class Habit(models.Model):
         return self.created_at
 
     def __str__(self):
-        return f"{self.user.username} - {self.date}"
-
-
-class Log(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    steps = models.IntegerField()
-    walking_steps = models.IntegerField(default=0)
-    exercise_minutes = models.IntegerField(default=0)
-    exercise_description = models.TextField(blank=True, null=True)
-    created_at = models.DateField(auto_now_add=True)
+        return f"{self.user.username} - {self.date()}"
 
 
 class Group(models.Model):
