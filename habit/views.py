@@ -13,19 +13,19 @@ from datetime import date, timedelta
 from rest_framework.permissions import IsAuthenticated
 
 
-class HabitCreateView(APIView):
+class LogCreateView(APIView):
     permission_classes = [IsAuthenticated] 
 
     def post(self, request):
         user = request.user
         data = request.data
-        habit = Habit.objects.create(
+        log = Habit.objects.create(
             user=user,
             walking_steps=data.get("walking_steps", 0),
             exercise_minutes=data.get("exercise_minutes", 0),
             exercise_description=data.get("exercise_description", ""),
         )
-        return Response({"message": "Habit log created"}, status=201)
+        return Response({"message": "Log created"}, status=201)
 
 
 class GroupView(APIView):
