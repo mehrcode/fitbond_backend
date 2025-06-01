@@ -7,6 +7,7 @@ from .serializers import HabitSerializer, GroupSerializer
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from django.shortcuts import get_object_or_404
 from rest_framework.permissions import IsAuthenticated
+from datetime import date, timedelta
 
 
 from rest_framework.permissions import IsAuthenticated
@@ -65,3 +66,22 @@ class SubmitCountView(APIView):
         active_days = habits.values_list("created_at", flat=True).distinct().count()
 
         return Response({"submit_count": submit_times, "active_days": active_days})
+
+
+class StreakView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+        user = request.user
+        habits = Habit.objects.filter(user=user).values_list('created_at', flat=True)
+        habit_dates = set(habits)
+
+        today = date.today()
+        streak = 0
+        current_day = today
+
+        while current_day in habit_dates:
+            streak +=1 
+            current_day -= timedelta(days=1)
+        
+        return Response({"streak": streak})

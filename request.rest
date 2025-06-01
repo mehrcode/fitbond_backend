@@ -73,3 +73,13 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiY
 }
 
 
+### habit_streak
+POST http://localhost:8000/habit/streak/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU3MzM0MzU0LCJpYXQiOjE3NDg2OTQzNTQsImp0aSI6ImIwOTdiYTc5YjU2MjQzMTJhMmRjMmFhNGZmODMyOGY5IiwidXNlcl9pZCI6IjhhZDdiMGE3LThhMWItNDkwMC05ODdiLTg4MGY4NmNhODQ5NSJ9.XAuAiAH9y-Un96mk_Y4gs4lXpx_JVM-JZN7eHt0cXWs
+
+
+# ### total_steps
+# POST http://localhost:8000/habit/total-steps/
+# Content-Type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU3MzM0MzU0LCJpYXQiOjE3NDg2OTQzNTQsImp0aSI6ImIwOTdiYTc5YjU2MjQzMTJhMmRjMmFhNGZmODMyOGY5IiwidXNlcl9pZCI6IjhhZDdiMGE3LThhMWItNDkwMC05ODdiLTg4MGY4NmNhODQ5NSJ9.XAuAiAH9y-Un96mk_Y4gs4lXpx_JVM-JZN7eHt0cXWs
