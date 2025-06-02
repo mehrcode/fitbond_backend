@@ -1,9 +1,8 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework import status
 from account.models import User
-from .models import Habit, Group
-from .serializers import HabitSerializer, GroupSerializer
+from .models import Habit
+from .serializers import HabitSerializer
 from rest_framework.permissions import IsAuthenticated
 from datetime import date, timedelta
 
@@ -21,31 +20,6 @@ class HabitCreateView(APIView):
             exercise_description=data.get("exercise_description", ""),
         )
         return Response({"message": "Habit created"}, status=201)
-
-
-class GroupView(APIView):
-    permission_classes = [IsAuthenticated]
-
-    def post(self, request):
-        name = request.data.get("name")
-        member_ids = request.data.get("member_ids", [])
-
-        if not name:
-            return Response({"error": "Group name is required."}, status=400)
-
-        admin = request.user
-        group = Group.objects.create(name=name, admin=admin)
-        group.members.add(admin)
-
-        for member_id in member_ids:
-            try:
-                user = User.objects.get(id=member_id)
-                group.members.add(user)
-            except User.DoesNotExist:
-                continue
-
-        serializer = GroupSerializer(group)
-        return Response(serializer.data, status=201)
 
 
 class SubmitCountView(APIView):

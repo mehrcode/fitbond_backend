@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Habit, Group, User
+from .models import Habit, User
 
 
 class HabitSerializer(serializers.ModelSerializer):
@@ -15,11 +15,4 @@ class HabitSerializer(serializers.ModelSerializer):
         ]
 
 
-class GroupSerializer(serializers.ModelSerializer):
-    admin = serializers.StringRelatedField()
-    members = serializers.StringRelatedField(many=True)
 
-    class Meta:
-        model = Group
-        fields = ["id", "name", "admin", "members", "created_at"]
-        read_only_fields = ["admin", "created_at"]
