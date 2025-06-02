@@ -16,7 +16,6 @@ class HabitCreateView(APIView):
         data = request.data
         habit = Habit.objects.create(
             user=user,
-            steps=data.get("steps", 0),
             walking_steps=data.get("walking_steps", 0),
             exercise_minutes=data.get("exercise_minutes", 0),
             exercise_description=data.get("exercise_description", ""),
